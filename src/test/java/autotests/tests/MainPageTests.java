@@ -3,9 +3,7 @@ package autotests.tests;
 import autotests.helpers.DriverUtils;
 import autotests.pages.MainPage;
 import com.codeborne.selenide.Condition;
-import io.qameta.allure.Description;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -28,6 +26,7 @@ public class MainPageTests extends TestBase {
 
     @Test
     @Tag("UI")
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверяем заголовок главной страницы")
     void mainPageTitleTest() {
         step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () -> {
@@ -42,8 +41,9 @@ public class MainPageTests extends TestBase {
     }
 
 
-    @Microservice("mainPage")
+
     @Test
+    @Microservice("mainPage")
     @Tag("UI")
     @Description("Тест для главной страницы")
     @DisplayName("На странице отображается главная форма")

@@ -1,7 +1,6 @@
 package autotests.helpers;
 
-import io.qameta.allure.Allure;
-import io.qameta.allure.Attachment;
+import io.qameta.allure.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
