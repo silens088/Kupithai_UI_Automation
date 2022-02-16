@@ -11,8 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static io.qameta.allure.Allure.step;
 
@@ -49,6 +48,7 @@ public class RegistrationTests extends TestBase {
         step("Проверяем наличие текста описания полей");
         step("Проверяем наличие кнопки зарегистрироваться");
 
+        //closeWebDriver();
 
     }
 }

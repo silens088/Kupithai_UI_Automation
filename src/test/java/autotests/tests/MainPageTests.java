@@ -40,8 +40,6 @@ public class MainPageTests extends TestBase {
         });
     }
 
-
-
     @Test
     @Microservice("mainPage")
     @Tag("UI")
@@ -55,7 +53,6 @@ public class MainPageTests extends TestBase {
                     $(By.id("common-home")).shouldBe(Condition.visible));
         });
     }
-
 
     @Test
     @Tag("UI")
@@ -74,7 +71,6 @@ public class MainPageTests extends TestBase {
                             .shouldHave(text("Тайская косметика и товары из Тайланда")).shouldBe(Condition.visible));
         });
     }
-
 
     @Test
     @Tag("UI")
