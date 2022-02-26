@@ -14,7 +14,6 @@ public class DriverSettings {
         Configuration.browser = Project.config.browser();
         Configuration.browserVersion = Project.config.browserVersion();
         Configuration.browserSize = Project.config.browserSize();
-//        Configuration.baseUrl = App.config.webUrl();
         Configuration.headless = true; //спец метод который не показывает браузер при прогоне тестов.
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

@@ -1,4 +1,4 @@
-![](src/images/logo_main.svg)
+![](images/logo_main.svg)
 
 # UI web automation проект для сайта косметики из тайланда [kupithai.ru](https://kupithai.ru/)
 
@@ -6,7 +6,7 @@
 
 | Java | Selenide | Gradle | Junit5 | Selenoid | Jenkins | IntelliJ IDEA | Allure Report | Allure Testops | Telegram |
 |:------:|:----:|:------:|:------:|:--------:|:--------:|:-------------:|:---------:|:---------:|:--------:|
-| ![Java](src/images/icons/Java.png) | ![Selenide](src/images/icons/Selenide.png) | ![Gradle](src/images/icons/Gradle.png) | ![JUnit5](src/images/icons/JUnit5.png) | ![Selenoid](src/images/icons/Selenoid.png) | ![Jenkins](src/images/icons/Jenkins.png) | ![Intelij_IDEA](src/images/icons/Intelij_IDEA.png) | ![Allure Report](src/images/icons/Allure_Report.png) | ![AllureTestOps](src/images/icons/AllureTestOps.png) | ![Telegram](src/images/icons/Telegram.png) |
+| ![Java](images/icons/Java.png) | ![Selenide](images/icons/Selenide.png) | ![Gradle](images/icons/Gradle.png) | ![JUnit5](images/icons/JUnit5.png) | ![Selenoid](images/icons/Selenoid.png) | ![Jenkins](images/icons/Jenkins.png) | ![Intelij_IDEA](images/icons/Intelij_IDEA.png) | ![Allure Report](images/icons/Allure_Report.png) | ![AllureTestOps](images/icons/AllureTestOps.png) | ![Telegram](images/icons/Telegram.png) |
 
 
 ## Параметры запуска
@@ -44,11 +44,11 @@ Click <a target="_blank" href="https://allure.autotests.cloud/project/968/dashbo
 
 Here are the test cases:
 
-![](src/images/screenshots/AllureTestops001.png)
+![](images/screenshots/AllureTestops001.png)
 
 Test launch overview:
 
-![](src/images/screenshots/AllureTestops002.png)
+![](images/screenshots/AllureTestops002.png)
 
 
 ## Запускай тесты удаленно через - Jenkins job!
@@ -56,15 +56,15 @@ Test launch overview:
 Jenkins is a tool from where you can run the tests.
 Click <a target="_blank" href="https://jenkins.autotests.cloud/job/009_Vitalii_Kupithai_UI_Automation/">here</a> to do that.
 
-![](src/images/screenshots/Jenkins001.png)
+![](images/screenshots/Jenkins001.png)
 
 ## Интерграция с Jira
 
-![](src/images/screenshots/Jira001.png)
+![](images/screenshots/Jira001.png)
 
 
 ## Получай оповещение о прохождении тестов прямо в Telegram!
 
 Each test builds sent report into telegram bot
 
-![](src/images/screenshots/TelegramReport001.png)
+![](images/screenshots/TelegramReport001.png)

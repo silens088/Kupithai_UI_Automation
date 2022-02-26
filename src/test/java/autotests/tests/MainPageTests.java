@@ -29,29 +29,26 @@ public class MainPageTests extends TestBase {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверяем заголовок главной страницы")
     void mainPageTitleTest() {
-        step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () -> {
-            mainPage.openMainPage();
+        step("Открываем главную страницу сайта " + mainPage.MAIN_PAGE_URL, () ->
+                mainPage.openPage());
 
-            step("Заголовок содержит текст: " + mainPage.mainTitle, () -> {
-                String actualTitle = title();
-                assertThat(actualTitle).isEqualTo(mainPage.mainTitle);
-                System.out.println(actualTitle);
-            });
-        });
+        String actualTitle = title();
+
+        step("Проверяем что заголовок содержит текст: " + mainPage.mainTitle, () ->
+                assertThat(actualTitle).isEqualTo(mainPage.mainTitle));
     }
 
     @Test
-    @Microservice("mainPage")
     @Tag("UI")
+    @Microservice("mainPage")
     @Description("Тест для главной страницы")
     @DisplayName("На странице отображается главная форма")
     void mainPageMainFormVisibleTest() {
-        step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () -> {
-            mainPage.openMainPage();
+        step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () ->
+                mainPage.openPage());
 
-            step("Проверяем что отображается главная форма", () ->
-                    $(By.id("common-home")).shouldBe(Condition.visible));
-        });
+        step("Проверяем что отображается главная форма", () ->
+                mainPage.checkVisibleMainForm());
     }
 
     @Test
@@ -59,17 +56,14 @@ public class MainPageTests extends TestBase {
     @Description("Тест для главной страницы")
     @DisplayName("На странице отображается главный заголовок")
     void mainPageHaveTitleTest() {
-        step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () -> {
-            mainPage.openMainPage();
+        step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () ->
+                mainPage.openPage());
 
-            step("Проверяем что заголовок страницы видимый", () ->
-                    $(By.className("us-main-shop-title")).shouldBe(Condition.visible));
+        step("Проверяем что заголовок страницы видимый", () ->
+                $(".us-main-shop-title").shouldBe(visible));
 
-            step("Заголовок страницы содержит текст: Тайская косметика и товары из Тайланда", () ->
-                    $(By.id("common-home"))
-                            .$(By.className("us-main-shop-title"))
-                            .shouldHave(text("Тайская косметика и товары из Тайланда")).shouldBe(Condition.visible));
-        });
+        step("Заголовок страницы содержит текст: " + mainPage.trueTextMainPage, () ->
+                mainPage.checkTrueTextForMainPage());
     }
 
     @Test
@@ -77,27 +71,24 @@ public class MainPageTests extends TestBase {
     @Description("Тест для главной страницы")
     @DisplayName("Негативный кейс. Заголовок содержит неверный текст")
     void negativeMainPageHaveTitleTest() {
-        step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () -> {
-            mainPage.openMainPage();
+        step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () ->
+                mainPage.openPage());
 
-            step("Проверяем что заголовок страницы видимый", () ->
-                    $(By.className("us-main-shop-title")).shouldBe(Condition.visible));
+        step("Проверяем что заголовок страницы видимый", () ->
+                $(".us-main-shop-title").shouldBe(visible));
 
-            step("Заголовок страницы содержит неверный текст", () -> {
-                String expectedText = "Тайская косметика и товары Тайланда";
-                $(By.id("common-home"))
-                        .$(By.className("us-main-shop-title"))
-                        .shouldHave(text(expectedText));
-            });
-        });
+        step("Проверяем что заголовок страницы содержит неверный текст", () ->
+                mainPage.checkBadTextForMainPage());
+
     }
+
 
     @Test
     @Tags({@Tag("web"), @Tag("UI")})
     @DisplayName("Проверяем основные элементы меню")
     public void checkMenuItemsTest() {
         step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () -> {
-            mainPage.openMainPage();
+            mainPage.openPage();
 
             step("Проверяем основные элементы меню и их видимость", () -> {
                 $("#oct-megamenu").shouldHave(text("Оплата и доставка")).shouldBe(visible);
@@ -115,7 +106,7 @@ public class MainPageTests extends TestBase {
     @DisplayName("Page console log should not have errors")
     void consoleShouldNotHaveErrorsTest() {
         step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () -> {
-            mainPage.openMainPage();
+            mainPage.openPage();
 
             step("Проверяем что консоль логов не содержит ошибок 'SEVERE'", () -> {
                 String consoleLogs = DriverUtils.getConsoleLogs();

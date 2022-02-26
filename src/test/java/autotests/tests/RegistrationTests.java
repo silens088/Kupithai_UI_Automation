@@ -28,7 +28,7 @@ public class RegistrationTests extends TestBase {
     void checkRegistrationFormFields() {
 
         step("Открыть главную страницу " + MainPage.MAIN_PAGE_URL, () ->
-                MainPage.openMainPage());
+                MainPage.openPage());
         step("Проверяем URL " + MainPage.MAIN_PAGE_URL, () ->
                 webdriver().shouldHave(url(MainPage.MAIN_PAGE_URL)));
 
