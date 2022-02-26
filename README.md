@@ -1,6 +1,6 @@
 ![](src/images/logo_main.svg)
 
-# UI web automation project for [kupithai.ru](https://kupithai.ru/)
+# UI web automation проект для сайта косметики из тайланда [kupithai.ru](https://kupithai.ru/)
 
 ## Technology Stack:
 
@@ -9,9 +9,11 @@
 | ![Java](src/images/icons/Java.png) | ![Selenide](src/images/icons/Selenide.png) | ![Gradle](src/images/icons/Gradle.png) | ![JUnit5](src/images/icons/JUnit5.png) | ![Selenoid](src/images/icons/Selenoid.png) | ![Jenkins](src/images/icons/Jenkins.png) | ![Intelij_IDEA](src/images/icons/Intelij_IDEA.png) | ![Allure Report](src/images/icons/Allure_Report.png) | ![AllureTestOps](src/images/icons/AllureTestOps.png) | ![Telegram](src/images/icons/Telegram.png) |
 
 
-## Launch options
+## Параметры запуска
 
-####For run remote tests need fill remote.properties or to pass value:
+Для удаленного запуска тестов, необходимо заполнить remote.properties следующими данными:
+For run remote tests need fill remote.properties or to pass value:
+
 * browser (default chrome)
 * browserVersion (default 89.0)
 * browserSize (default 1920x1080)
@@ -35,7 +37,8 @@ Serve report:
 allure serve build/allure-results
 ```
 
-## Allure TestOps
+
+## Смотри отчёты о прохождении автотестов и храни документацию в Allure TestOps
 
 Click <a target="_blank" href="https://allure.autotests.cloud/project/968/dashboards">here</a> to see a list of automated test cases.
 
@@ -48,15 +51,19 @@ Test launch overview:
 ![](src/images/screenshots/AllureTestops002.png)
 
 
-## Run tests - Jenkins job
+## Запускай тесты удаленно через - Jenkins job!
 
 Jenkins is a tool from where you can run the tests.
 Click <a target="_blank" href="https://jenkins.autotests.cloud/job/009_Vitalii_Kupithai_UI_Automation/">here</a> to do that.
 
 ![](src/images/screenshots/Jenkins001.png)
 
+## Интерграция с Jira
 
-## Telegram report
+![](src/images/screenshots/Jira001.png)
+
+
+## Получай оповещение о прохождении тестов прямо в Telegram!
 
 Each test builds sent report into telegram bot
 
