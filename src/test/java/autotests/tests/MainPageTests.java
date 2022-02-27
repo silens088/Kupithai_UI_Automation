@@ -1,5 +1,8 @@
 package autotests.tests;
 
+import autotests.annotations.JiraIssue;
+import autotests.annotations.JiraIssues;
+import autotests.annotations.Microservice;
 import autotests.helpers.DriverUtils;
 import autotests.pages.MainPage;
 import io.qameta.allure.*;
@@ -8,24 +11,28 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
-import autotests.annotations.Microservice;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.title;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.error.ShouldHave.shouldHave;
 
 @Owner("vvelichko")
 @Story("MainPageTests")
+@Tags({@Tag("Web"), @Tag("UI")})
+@JiraIssues({@JiraIssue("HOMEWORK-356")})
 
 public class MainPageTests extends TestBase {
     MainPage mainPage = new MainPage();
 
     @Test
     @Tag("UI")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.BLOCKER)
+    @Microservice("Главная страница")
+    @Feature("Главная страница сайта")
+    @Story("Проверка текста основных блоков")
+    @Description("Тест для главной страницы")
     @DisplayName("Проверяем заголовок главной страницы")
     void mainPageTitleTest() {
         step("Открываем главную страницу сайта " + mainPage.MAIN_PAGE_URL, () ->
@@ -39,7 +46,10 @@ public class MainPageTests extends TestBase {
 
     @Test
     @Tag("UI")
-    @Microservice("mainPage")
+    @Severity(SeverityLevel.NORMAL)
+    @Microservice("Главная страница")
+    @Feature("Главная страница сайта")
+    @Story("Проверка текста основных блоков")
     @Description("Тест для главной страницы")
     @DisplayName("На странице отображается главная форма")
     void mainPageMainFormVisibleTest() {
@@ -52,6 +62,10 @@ public class MainPageTests extends TestBase {
 
     @Test
     @Tag("UI")
+    @Severity(SeverityLevel.CRITICAL)
+    @Microservice("Главная страница")
+    @Feature("Главная страница сайта")
+    @Story("Проверка текста основных блоков")
     @Description("Тест для главной страницы")
     @DisplayName("На странице отображается главный заголовок")
     void mainPageHaveTitleTest() {
@@ -67,6 +81,10 @@ public class MainPageTests extends TestBase {
 
     @Test
     @Tag("UI")
+    @Severity(SeverityLevel.TRIVIAL)
+    @Microservice("Главная страница")
+    @Feature("Главная страница сайта")
+    @Story("Проверка текста основных блоков")
     @Description("Тест для главной страницы")
     @DisplayName("Негативный кейс. Заголовок содержит неверный текст")
     void negativeMainPageHaveTitleTest() {
@@ -80,35 +98,38 @@ public class MainPageTests extends TestBase {
                 mainPage.checkBadTextForMainPage());
     }
 
-
-    //                $("#oct-megamenu").shouldHave(text("Оплата и доставка")),
-//                        $("#oct-megamenu").shouldHave(text("Гарантии"))
-//                $("#oct-megamenu").shouldHave(text("Как оформить заказ"))
-//                $("#oct-megamenu").shouldHave(text("Подарки"))
-//                $("#oct-megamenu").shouldHave(text("Товар дня"))
-
     @Test
-    @Tags({@Tag("web"), @Tag("UI")})
+    @Tag("UI")
+    @Severity(SeverityLevel.NORMAL)
+    @Microservice("Главная страница")
+    @Feature("Главная страница сайта")
+    @Story("Проверка текста основных блоков")
+    @Description("Тест для главной страницы")
     @DisplayName("Проверяем основные элементы меню")
     public void checkMenuItemsTest() {
-
-        step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () ->
+        step("Открываем главную страницу " + mainPage.MAIN_PAGE_URL, () ->
                 mainPage.openPage());
 
-        step("Проверяем основные элементы меню и их видимость", () -> {
-            $("#oct-megamenu").shouldHave(text("Оплата и доставка")),
-                    (text("Гарантии")),
-                    (text("Как оформить заказ")),
-                    (text("Подарки")),
-                    (text("Товар дня"))
-        });
+        step("Проверяем основные элементы меню и их видимость", () ->
+            $("#oct-megamenu").shouldHave
+                    (text(mainPage.paymentDelivery),
+                    (text(mainPage.guarantees)),
+                    (text(mainPage.getOrder)),
+                    (text(mainPage.presents)),
+                    (text(mainPage.productDay))));
 
-        step("Проверяем что элемент Список желаний невидим", () ->
+        step("Проверяем что элемент" + mainPage.wishlist + "невидим", () ->
                 $(".vi-oct-megamenu-wishlist-link").shouldNot(visible));
     }
 
     @Test
-    @DisplayName("Page console log should not have errors")
+    @Tag("UI")
+    @Severity(SeverityLevel.MINOR)
+    @Microservice("Главная страница")
+    @Feature("Главная страница сайта")
+    @Story("Проверка текста основных блоков")
+    @Description("Тест для главной страницы")
+    @DisplayName("Консоль логов не содержит ошибок")
     void consoleShouldNotHaveErrorsTest() {
         step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () -> {
             mainPage.openPage();

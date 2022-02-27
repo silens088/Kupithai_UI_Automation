@@ -7,18 +7,18 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class MainPage {
 
-    //вынести в овнера
     public static final String MAIN_PAGE_URL = "https://kupithai.ru/";
 
     public String mainTitle = "Тайская косметика купить в интернет магазине в Москве | Товары из Тайланда";
     public String badTextMainPage = "Тайская косметика и товары Тайланда";
     public String trueTextMainPage = "Тайская косметика и товары из Тайланда";
 
-    public String oplataDostavka = "Оплата и доставка";
-    public String garantii = "Гарантии";
-    public String oformZakaz = "Как оформить заказ";
-    public String podarki = "Подарки";
-    public String tovarDay = "Товар дня";
+    public String paymentDelivery = "Оплата и доставка";
+    public String guarantees = "Гарантии";
+    public String getOrder = "Как оформить заказ";
+    public String presents = "Подарки";
+    public String productDay = "Товар дня";
+    public String wishlist = "Список желаний";
 
     public static void openPage() {
         open(MAIN_PAGE_URL);
