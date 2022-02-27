@@ -15,6 +15,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.error.ShouldHave.shouldHave;
 
 @Owner("vvelichko")
 @Story("MainPageTests")
@@ -79,23 +80,31 @@ public class MainPageTests extends TestBase {
                 mainPage.checkBadTextForMainPage());
     }
 
+
+    //                $("#oct-megamenu").shouldHave(text("Оплата и доставка")),
+//                        $("#oct-megamenu").shouldHave(text("Гарантии"))
+//                $("#oct-megamenu").shouldHave(text("Как оформить заказ"))
+//                $("#oct-megamenu").shouldHave(text("Подарки"))
+//                $("#oct-megamenu").shouldHave(text("Товар дня"))
+
     @Test
     @Tags({@Tag("web"), @Tag("UI")})
     @DisplayName("Проверяем основные элементы меню")
     public void checkMenuItemsTest() {
-        step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () -> {
-            mainPage.openPage();
 
-            step("Проверяем основные элементы меню и их видимость", () -> {
-                $("#oct-megamenu").shouldHave(text("Оплата и доставка")).shouldBe(visible);
-                $("#oct-megamenu").shouldHave(text("Гарантии")).shouldBe(visible);
-                $("#oct-megamenu").shouldHave(text("Как оформить заказ")).shouldBe(visible);
-                $("#oct-megamenu").shouldHave(text("Подарки")).shouldBe(visible);
-                $("#oct-megamenu").shouldHave(text("Товар дня")).shouldBe(visible);
-            });
-            step("Проверяем что элемент Список желаний невидим", () ->
-                    $(".vi-oct-megamenu-wishlist-link").shouldNot(visible));
+        step("Открыть главную страницу " + mainPage.MAIN_PAGE_URL, () ->
+                mainPage.openPage());
+
+        step("Проверяем основные элементы меню и их видимость", () -> {
+            $("#oct-megamenu").shouldHave(text("Оплата и доставка")),
+                    (text("Гарантии")),
+                    (text("Как оформить заказ")),
+                    (text("Подарки")),
+                    (text("Товар дня"))
         });
+
+        step("Проверяем что элемент Список желаний невидим", () ->
+                $(".vi-oct-megamenu-wishlist-link").shouldNot(visible));
     }
 
     @Test
