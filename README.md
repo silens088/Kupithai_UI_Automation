@@ -1,8 +1,8 @@
 ![](images/logo_main.svg)
 
-# UI web automation проект для сайта косметики из тайланда [kupithai.ru](https://kupithai.ru/)
+# UI web automation проект для сайта [kupithai.ru](https://kupithai.ru/)
 
-## Technology Stack:
+## Технологический стек:
 
 | Java | Selenide | Gradle | Junit5 | Selenoid | Jenkins | IntelliJ IDEA | Allure Report | Allure Testops | Telegram |
 |:------:|:----:|:------:|:------:|:--------:|:--------:|:-------------:|:---------:|:---------:|:--------:|
@@ -12,7 +12,6 @@
 ## Параметры запуска
 
 Для удаленного запуска тестов, необходимо заполнить remote.properties следующими данными:
-For run remote tests need fill remote.properties or to pass value:
 
 * browser (default chrome)
 * browserVersion (default 89.0)
@@ -38,33 +37,30 @@ allure serve build/allure-results
 ```
 
 
-## Смотри отчёты о прохождении автотестов и храни документацию в Allure TestOps
+## Отчёты о прохождении автотестов и хранение документации организовано в Allure TestOps
 
 Click <a target="_blank" href="https://allure.autotests.cloud/project/968/dashboards">here</a> to see a list of automated test cases.
 
-Here are the test cases:
+Отчет о прохождении тестов:
 
 ![](images/screenshots/AllureTestops001.png)
 
-Test launch overview:
+Обзор тестового прогона:
 
 ![](images/screenshots/AllureTestops002.png)
 
 
-## Запускай тесты удаленно через - Jenkins job!
+## Удаленный запуск тестов возможен через - Jenkins job
 
-Jenkins is a tool from where you can run the tests.
 Click <a target="_blank" href="https://jenkins.autotests.cloud/job/009_Vitalii_Kupithai_UI_Automation/">here</a> to do that.
 
 ![](images/screenshots/Jenkins001.png)
 
-## Интерграция с Jira
+## Настроена Интерграция с Jira
 
 ![](images/screenshots/Jira001.png)
 
 
-## Получай оповещение о прохождении тестов прямо в Telegram!
-
-Each test builds sent report into telegram bot
+## Оповещение о прохождении тестов приходит в Telegram bot
 
 ![](images/screenshots/TelegramReport001.png)
