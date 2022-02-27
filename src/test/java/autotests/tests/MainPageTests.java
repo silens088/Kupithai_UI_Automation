@@ -2,13 +2,11 @@ package autotests.tests;
 
 import autotests.helpers.DriverUtils;
 import autotests.pages.MainPage;
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import autotests.annotations.Microservice;
 
@@ -79,9 +77,7 @@ public class MainPageTests extends TestBase {
 
         step("Проверяем что заголовок страницы содержит неверный текст", () ->
                 mainPage.checkBadTextForMainPage());
-
     }
-
 
     @Test
     @Tags({@Tag("web"), @Tag("UI")})
@@ -98,7 +94,7 @@ public class MainPageTests extends TestBase {
                 $("#oct-megamenu").shouldHave(text("Товар дня")).shouldBe(visible);
             });
             step("Проверяем что элемент Список желаний невидим", () ->
-                    $(".vi-oct-megamenu-wishlist-link").shouldNot(Condition.visible));
+                    $(".vi-oct-megamenu-wishlist-link").shouldNot(visible));
         });
     }
 

@@ -24,7 +24,6 @@ public class MainPage {
         open(MAIN_PAGE_URL);
     }
 
-
     public MainPage checkBadTextForMainPage() {
         $("#common-home").$(".us-main-shop-title").shouldHave(text(badTextMainPage));
         return this;
@@ -34,7 +33,6 @@ public class MainPage {
         $("#common-home").$(".us-main-shop-title").shouldHave(text(trueTextMainPage));
         return this;
     }
-
 
     public MainPage checkVisibleMainForm() {
         $("#common-home").shouldBe(visible);
