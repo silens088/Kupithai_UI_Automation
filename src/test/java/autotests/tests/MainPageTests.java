@@ -111,12 +111,12 @@ public class MainPageTests extends TestBase {
                 mainPage.openPage());
 
         step("Проверяем основные элементы меню и их видимость", () ->
-            $("#oct-megamenu").shouldHave
-                    (text(mainPage.paymentDelivery),
-                    (text(mainPage.guarantees)),
-                    (text(mainPage.getOrder)),
-                    (text(mainPage.presents)),
-                    (text(mainPage.productDay))));
+                $("#oct-megamenu").shouldHave
+                        (text(mainPage.paymentDelivery),
+                                (text(mainPage.guarantees)),
+                                (text(mainPage.getOrder)),
+                                (text(mainPage.presents)),
+                                (text(mainPage.productDay))));
 
         step("Проверяем что элемент" + mainPage.wishlist + "невидим", () ->
                 $(".vi-oct-megamenu-wishlist-link").shouldNot(visible));

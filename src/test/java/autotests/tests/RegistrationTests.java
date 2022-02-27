@@ -1,13 +1,14 @@
 package autotests.tests;
 
+import autotests.annotations.JiraIssue;
+import autotests.annotations.JiraIssues;
+import autotests.annotations.Microservice;
 import autotests.pages.MainPage;
 import autotests.pages.RegistrationPage;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -18,6 +19,8 @@ import static io.qameta.allure.Allure.step;
 
 @Owner("vvelichko")
 @Story("RegistrationTests")
+@Tags({@Tag("Web"), @Tag("UI")})
+@JiraIssues({@JiraIssue("HOMEWORK-356")})
 
 public class RegistrationTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
@@ -25,6 +28,10 @@ public class RegistrationTests extends TestBase {
     @Test
     @Tag("UI")
     @Severity(SeverityLevel.CRITICAL)
+    @Microservice("Регистрация пользователя")
+    @Feature("Функцонал регистрации")
+    @Story("Регистрация пользователя")
+    @Description("Проверка формы регистрации")
     @DisplayName("Проверяем поля формы регистрации")
     void checkRegistrationFormFields() {
 
@@ -33,16 +40,13 @@ public class RegistrationTests extends TestBase {
         step("Проверяем URL " + MainPage.MAIN_PAGE_URL, () ->
                 webdriver().shouldHave(url(MainPage.MAIN_PAGE_URL)));
 
-        step("Нажимаем на кнопку регистрация", () -> {
-            $(".btn-link.h-100.hidden-md.top-register-link").shouldHave(text("Регистрация"));
-            $(".btn-link.h-100.hidden-md.top-register-link").click();
-        });
+        step("На странице есть кнопка" + registrationPage.registrationTitle, () ->
+                registrationPage.checkRegistrationButton());
 
-        step("Проверяем что страница содержит заголовок Регистрация", () -> {
-            $(".vi-checkout-heading-title").shouldHave(text("Регистрация"));
-        });
+        step("Нажимаем на кнопку" + registrationPage.registrationTitle, () ->
+                registrationPage.clickRegistrationButton());
 
-        step("Проверяем наличие текста описания полей");
-        step("Проверяем наличие кнопки зарегистрироваться");
+        step("Проверяем что страница содержит заголовок " + registrationPage.registrationTitle, () ->
+                registrationPage.checkRegistrationTitle());
     }
 }
